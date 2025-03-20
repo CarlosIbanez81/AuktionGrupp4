@@ -1,12 +1,18 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const connectDB = require('./config/db')
+require('dotenv').config()
+const cors = require('cors');
 
-const PORT = 3000;
+
+connectDB();
+
+const app = express();
+app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Server running with nodemon!');
+    res.send('Server is running!');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+
+module.exports = app;
