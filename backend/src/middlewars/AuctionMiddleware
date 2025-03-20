@@ -1,0 +1,12 @@
+import { schema } from "../models/newAuctionSchema";
+
+schema.pre('save', function (schema) {
+    if (!this.endTime) {
+        this.endTime = nem Date();
+        this.endTime.setDate(this.endTime.getDate() + this.duration);
+    }
+    next();
+}
+)
+
+module.exports = (schema)
