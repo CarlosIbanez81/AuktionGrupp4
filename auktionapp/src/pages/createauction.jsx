@@ -8,7 +8,7 @@ const  Createauction= () => {
         <h1>Välkommen till min auktionssidan!</h1>
       </header>
       <main>
-        <p>Detta är en enkel hemsida skapad med React och JSX.</p>
+        <p>Detta är en enkel hemsida att starta på.</p>
       </main>
       
     </div>
