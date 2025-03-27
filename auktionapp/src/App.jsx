@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import Createauction from "./pages/createauction/CreateAuction";
+import CreateAuction from "./pages/CreateAuction/CreateAuction";
+import LandingPage from "./pages/landingpage/Landingpage";
+
 
 function App() {
   return (
     <>
-      <Createauction />
+      <LandingPage />
     </>
   );
 }
