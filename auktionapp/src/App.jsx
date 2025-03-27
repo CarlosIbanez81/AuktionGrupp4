@@ -1,14 +1,13 @@
-import React from 'react'
-import './App.css'
-import Createauction from './pages/createauction'
+import React from "react";
+import "./App.css";
+import Createauction from "./pages/createauction/CreateAuction";
 
 function App() {
- 
   return (
     <>
       <Createauction />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
