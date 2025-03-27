@@ -1,10 +1,10 @@
+import searchAuctions from "../controllers/AuctionController";
+
 const express = require("express");
-// Importera controller.
 const router = express.Router();
 
 router.post('/', createAuction);
-router.get('/', getAuctions);
-router.get('/:id', getAuction);
+router.get('/search', searchAuctions);
 router.delete('/:id', deleteAuction);
 
 module.exports = router;
