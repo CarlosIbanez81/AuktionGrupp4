@@ -1,5 +1,5 @@
 const mongoose = require ('mongoose')
-const useAuctionMiddleware = require('../middlewars/AuctionMiddleware')
+const useAuctionMiddleware = require('../middlewares/AuctionMiddleware')
 
 const AuctionSchema = new mongoose.Schema({
     user: { type: String, required: true},
