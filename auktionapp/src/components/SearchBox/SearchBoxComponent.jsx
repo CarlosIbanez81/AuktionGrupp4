@@ -1,6 +1,6 @@
 
 
-const SearchBoxContainer = ({input, setInput, handleSearch}) => {
+const SearchBoxComponent = ({input, setInput, handleSearch}) => {
 
   return (
     <>
@@ -10,4 +10,4 @@ const SearchBoxContainer = ({input, setInput, handleSearch}) => {
   )
 };
 
-export default SearchBoxContainer;
+export default SearchBoxComponent;
