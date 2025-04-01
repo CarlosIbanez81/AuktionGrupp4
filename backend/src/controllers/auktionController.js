@@ -17,11 +17,24 @@ const createAuction = async (req, res) => {
         const auction = new Auction({ user, object, text, price, duration, endTime });
 
         await auction.save();
-        res.status(201).json(auction);
+
+        // Respond with success
+    res.status(201).json({ message: 'Auktion skapades framgångsrikt', auction });
     } catch (error) {
-        res.status(400).json({ error: "något gick fel på skapandet av auktion" });
+        console.error('Error creating auction:', error);
+        res.status(500).json({ error: 'Något gick fel vid skapandet av auktionen' });
     }
-
 }
+   // Get all auctions
+const getAuctions = async (req, res) => {
+  try {
+    const auctions = await Auction.find(); // Fetch all auctions from the database
+    res.status(200).json(auctions); // Respond with the auction data
+  } catch (error) {
+    console.error('Error fetching auctions:', error);
+    res.status(500).json({ error: 'Failed to fetch auctions' });
+  }
+}; 
 
-module.exports = { createAuction };
+
+module.exports = { getAuctions, createAuction };
