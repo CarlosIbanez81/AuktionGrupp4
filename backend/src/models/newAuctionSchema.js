@@ -7,7 +7,8 @@ const AuctionSchema = new mongoose.Schema({
     text: { type: String, required: true},
     price: { type: Number, required: true },
     duration: { type: Number, enum: [7,14], required: true },
-    endTime: { type: Date, required: true}   
+    endTime: { type: Date, required: true},   
+    bids: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Bid' }] 
 }, { timestamps: true });
 
 useAuctionMiddleware(AuctionSchema);
