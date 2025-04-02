@@ -7,6 +7,28 @@ const LandingPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = () => {
+    fetch(
+      `http://localhost:3000/api/auctions/search?input=${encodeURIComponent(
+        searchTerm
+      )}`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Fel vid sökning av auktioner");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setAuctions(data);
+      })
+      .catch((error) => {
+        console.error("sökfel:", error);
+        setError("Kunde inte ladda auktioner. Försök igen senare.");
+      });
+  };
 
   useEffect(() => {
     fetch("http://localhost:3000/api/auctions")
@@ -27,7 +49,7 @@ const LandingPage = () => {
       });
   }, []);
 
-  return (   
+  return (
     <div className="container">
       <h1 className="title">Välkommen till KattAuktion</h1>
       <p className="subtitle">Köp och sälj underbara katter på auktion</p>
@@ -38,8 +60,12 @@ const LandingPage = () => {
           type="text"
           placeholder="Vad letar du efter?"
           className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="search-button">🔍</button>
+        <button className="search-button" onClick={handleSearch}>
+          🔍
+        </button>
       </div>
 
       {/* Lista av auktioner */}
