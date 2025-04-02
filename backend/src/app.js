@@ -3,7 +3,7 @@ require('dotenv').config()
 const connectDB = require('./config/db')
 const cors = require('cors');
 const AuctionRoutes = require('./routes/AuctionRoutes')
-// const BidRoutes = require('./routes/BidRoutes')
+const BidRoutes = require('./routes/BidRoutes')
 
 
 
@@ -16,7 +16,7 @@ app.use(cors());
 
 
 app.use('/api/auctions', AuctionRoutes)
-// app.use('/api/bid', BidRoutes)
+app.use('/api/bid', BidRoutes)
 
 
 app.get('/', (req, res) => {

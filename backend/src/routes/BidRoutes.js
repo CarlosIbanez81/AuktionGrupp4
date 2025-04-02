@@ -1,12 +1,11 @@
 
 const express = require("express");
-const { getBid, updateBid, placeBid } = require("../controllers/BidController");
+const { getBids, updateBid, placeBid } = require("../controllers/BidController");
 const router = express.Router();
 
 
-router.get('/:auctionId/bids', getBids); // Hämta alla bud
-router.put('/:id', updateBid);
-router.post('/:id/place', placeBid); //placera bud
+router.get('/:auctionId/bids', getBids);
 
+router.post('/:auctionId/bids', placeBid);
 
 module.exports = router;
