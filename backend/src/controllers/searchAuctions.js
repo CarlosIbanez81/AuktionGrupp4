@@ -1,4 +1,6 @@
 
+const Auction = require('../models/newAuctionSchema');
+
 const searchAuctions = async (req,res) => {
 
   try {
@@ -14,4 +16,4 @@ const searchAuctions = async (req,res) => {
   }
 };
 
-export default searchAuctions;
+module.exports = { searchAuctions };
