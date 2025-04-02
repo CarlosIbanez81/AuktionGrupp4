@@ -9,7 +9,7 @@ const LandingPage = () => {
   const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/auctions")
+    fetch("http://localhost:3000/api/auctions")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP-fel! status: ${response.status}`);
